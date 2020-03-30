@@ -14,26 +14,19 @@ import java.util.Scanner;
  * 10
  * 输出
  * 2*/
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
-            int n = sc.nextInt();
-            int num = 1;
-            for (int i = 1; i <= n; i++) {
-                num *= i;
+        int n = sc.nextInt();
+        int res = 0;
+        for(int i = n; i >= 5; i--) {
+            int tmp = i;
+            while(tmp % 5 == 0) {
+                res++;
+                tmp /= 5;
             }
-            int count = 0;
-            String str = String.valueOf(num);
-            char[] arr = str.toCharArray();
-            for (int i = arr.length - 1; i >= 0; i--) {
-                if (arr[i] != '0') {
-                    break;
-                }
-                count++;
-            }
-            System.out.println(count);
         }
+        System.out.println(res);
     }
-
 }
